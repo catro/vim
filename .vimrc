@@ -50,6 +50,22 @@ set scrolloff=3                 " Minimal number of screen lines to keep above a
 set laststatus=2                " Display status line always.
 set autowrite                   " Write the contents of the file, if it has been modified and token to another file.
 set mouse=a                     " Enable the mouse in all modes.
+set cursorline                  " Highlight the screen line of the cursor with CursorLine.
+set cursorcolumn                " Highlight the screen column of the cursor with CursorColumn.
+set ruler                       " Show the line and column number of the cursor position
+set showcmd                     " Show (partial) command in the last line of the screen.
+set encoding=utf-8              " Sets the character encoding used inside Vim. 
+set history=1000                " Count of history.
+set autoread                    " When a file has been detected to have been changed outside of Vim, automatically read it again.
+set backspace=2                 " Let backspace handle indent, eol and start.
+set whichwrap+=<,>,h,l          " Allow specified keys that move the cursor left/right to move to the previous/next line.
+set report=0                    " Always report number of lines changed.
+set statusline=%f%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]
+                                " Content of statusline
+
+" Set highlight cursor line and column.
+hi CursorLine cterm=None term=reverse ctermbg=0 guibg=Grey40
+hi CursorColumn cterm=None term=reverse ctermbg=0 guibg=Grey40
 
 " Restore the position of last closed file.
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -59,10 +75,12 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " Keymap                                                                      " 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F1> :Tlist<cr>
+nmap <F2> :NERDTreeToggle<CR>
 set pastetoggle=<F4>
 nmap <F5> :make<cr>
 nmap <F6> :cn<cr>
 nmap <F7> :cp<cr>
+nmap <F12> :call FormartSrc()<CR><CR>
 
 " Replace TAB with four spaces.
 nmap tt :%s/\t/    /g<CR>
@@ -72,10 +90,34 @@ map <C-a> ggVG$"+y
 vmap <C-c> "+y
 imap <C-v> <Esc>"*pa
 
-" Keymap for VIM tab
+" Keymap for VIM tab.
 nmap <CR> :tabnew<cr>
 nmap <C-n> :tabn<cr>
 nmap <C-p> :tabp<cr>
+
+" Function to format source code.
+func FormartSrc()
+    exec "w"
+    if &filetype == 'c'
+        exec "!astyle --style=ansi --suffix=none %"
+    elseif &filetype == 'cpp' || &filetype == 'hpp'
+        exec "r !astyle --style=ansi --one-line=keep-statements --suffix=none %> /dev/null 2>&1"
+    elseif &filetype == 'perl'
+        exec "!astyle --style=gnu --suffix=none %"
+    elseif &filetype == 'py'||&filetype == 'python'
+        exec "r !autopep8 -i --aggressive %"
+    elseif &filetype == 'java'
+        exec "!astyle --style=java --suffix=none %"
+    elseif &filetype == 'jsp'
+        exec "!astyle --style=gnu --suffix=none %"
+    elseif &filetype == 'xml'
+        exec "!astyle --style=gnu --suffix=none %"
+    else
+        exec "normal gg=G"
+        return
+    endif
+    exec "e! %"
+endfunc
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
