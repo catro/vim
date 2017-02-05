@@ -63,15 +63,19 @@ set pastetoggle=<F4>
 nmap <F5> :make<cr>
 nmap <F6> :cn<cr>
 nmap <F7> :cp<cr>
+
 " Replace TAB with four spaces.
 nmap tt :%s/\t/    /g<CR>
+
+" Copy/Paste
 map <C-a> ggVG$"+y
 vmap <C-c> "+y
 imap <C-v> <Esc>"*pa
-nmap <c-m> :tabnew<cr>
-nmap <c-n> :tabn<cr>
-nmap <c-p> :tabp<cr>
-nmap <c-t> :tabc<cr>
+
+" Keymap for VIM tab
+nmap <CR> :tabnew<cr>
+nmap <C-n> :tabn<cr>
+nmap <C-p> :tabp<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
