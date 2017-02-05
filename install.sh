@@ -14,7 +14,7 @@ sudo easy_install -ZU autopep8
 [ -d ~/.vim ] && mv -f ~/.vim ~/.vim_old
 [ -f ~/.vimrc ] && mv -f ~/.vimrc ~/.vimrc_old
 git clone git@github.com:catro/vim.git ~/.vim
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ln -s ~/.vim/.vimrc ~/
 vim +BundleInstall +qall
 echo "Done"

@@ -16,5 +16,5 @@ Open terminal and execute:
  - `[ -f ~/.vimrc ] && mv -f ~/.vimrc ~/.vimrc_old`
 - Clone the configuration: `git clone git@github.com:catro/vim.git ~/.vim`
 - Create vimrc: `ln -s ~/.vim/.vimrc ~/`
-- Clone bundle: `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
+- Clone bundle: `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 - Install bundles: `vim +BundleInstall +qall`
