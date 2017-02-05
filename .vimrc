@@ -14,9 +14,12 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'vim-scripts/snipMate'
+"Plugin 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/Auto-Pairs'
+Plugin 'vim-scripts/python-imports.vim'     "<C-f> to append necessary import.
 Plugin 'asins/vim-dict'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()               " required
@@ -63,7 +66,7 @@ set autoread                    " When a file has been detected to have been cha
 set backspace=2                 " Let backspace handle indent, eol and start.
 set whichwrap+=<,>,h,l          " Allow specified keys that move the cursor left/right to move to the previous/next line.
 set report=0                    " Always report number of lines changed.
-set statusline=%f%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]
+set statusline=%f%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %#warningmsg#\ %{SyntasticStatuslineFlag()}
                                 " Content of statusline
 
 " Set highlight cursor line and column.
@@ -85,6 +88,12 @@ nmap <F6> :cn<cr>
 nmap <F7> :cp<cr>
 nmap <F12> :call FormartSrc()<CR><CR>
 
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " Replace TAB with four spaces.
 nmap tt :%s/\t/    /g<CR>
 
@@ -94,9 +103,9 @@ vmap <C-c> "+y
 imap <C-v> <Esc>"*pa
 
 " Keymap for VIM tab.
-nmap <CR> :tabnew<cr>
-nmap <C-n> :tabn<cr>
-nmap <C-p> :tabp<cr>
+nmap <leader><CR> :tabnew<cr>
+nmap <leader>] :tabn<cr>
+nmap <leader>[ :tabp<cr>
 
 " Function to format source code.
 func FormartSrc()
@@ -147,3 +156,13 @@ let Tlist_WinWidth=50
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let g:NERDTreeWinPos = "right"
 let NERDTreeIgnore=['\.pyc', '\.pyo']
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" syntastic configuration                                                       " 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_ignore_files = ['.c$']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
