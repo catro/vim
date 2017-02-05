@@ -13,6 +13,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub repo
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'asins/vim-dict'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 
@@ -46,6 +48,7 @@ set list                        " Display tab
 set listchars=tab:--            " Disable tab as --
 set go=                         " Disable GUI effect
 set completeopt=longest,menu    " Options for Insert mode completion.
+set complete+=k                 " Add dictionary completion source.
 set scrolloff=3                 " Minimal number of screen lines to keep above and below the cursor.
 set laststatus=2                " Display status line always.
 set autowrite                   " Write the contents of the file, if it has been modified and token to another file.
@@ -135,3 +138,12 @@ let Tlist_Exit_OnlyWindow=1
 let Tlist_Sort_Type="name"
 let Tlist_Process_File_Always=0
 let Tlist_WinWidth=50
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERD-Tree configuration                                                       " 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Close vim if the only window left is a NERDTree.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let g:NERDTreeWinPos = "right"
+let NERDTreeIgnore=['\.pyc', '\.pyo']
