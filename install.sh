@@ -12,8 +12,8 @@ fi
 
 sudo easy_install -ZU autopep8 
 [ -d ~/vim ] && mv -f ~/vim ~/vim_old
-[-d ~/.vim ] && mv -f ~/.vim ~/.vim_old
-[ -f ~/.vimrc] && mv -f ~/.vimrc ~/.vimrc_old
+[ -d ~/.vim ] && mv -f ~/.vim ~/.vim_old
+[ -f ~/.vimrc ] && mv -f ~/.vimrc ~/.vimrc_old
 git clone git@github.com:catro/vim.git ~/.vim
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ln -s ~/.vim/.vimrc ~/
