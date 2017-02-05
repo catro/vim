@@ -17,4 +17,4 @@ Open terminal and execute:
 - Clone the configuration: `git clone git@github.com:catro/vim.git ~/.vim`
 - Create vimrc: `ln -s ~/.vim/.vimrc ~/`
 - Clone bundle: `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
-- vim +BundleInstall +qall
+- Install bundles: `vim +BundleInstall +qall`
