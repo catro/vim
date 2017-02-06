@@ -5,8 +5,13 @@ set nocompatible                " be iMproved, required
 filetype off                    " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has('win32')
+    set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+    call vundle#begin('$HOME/vimfiles/bundle/')
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+endif
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -84,7 +89,11 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " Solarized colorscheme                                                       "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
-colorscheme solarized
+try
+    colorscheme solarized
+catch
+    colorscheme desert
+endtry
 let g:solarized_termcolors=256
 
 
@@ -105,7 +114,8 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-
+"Patched font
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymap                                                                      "
@@ -132,10 +142,11 @@ nmap ` za
 " Replace TAB with four spaces.
 nmap tt :%s/\t/    /g<CR>
 
-" Copy/Paste.
+" Copy/Paste/Save.
 map <C-a> ggVG$"+y
 vmap <C-c> "+y
 imap <C-v> <Esc>"*pa
+nmap <C-s> :w<cr>
 
 " Keymap for VIM tab.
 nmap <C-n> :tabn<cr>
