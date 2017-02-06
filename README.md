@@ -10,7 +10,7 @@ Open terminal and execute:
 
 1. Install ctags: `sudo apt-get install ctags`
 - Install other softwares: `sudo apt-get install xclip astyle python-setuptools`
-- Install format tool for python: `sudo easy_install -ZU autopep8`
+- Install format tool for python: `sudo easy_install -ZU autopep8 flake8`
 - Backup old configuration if exists: 
  - `[ -d ~/.vim ] && mv -f ~/.vim ~/.vim_old`
  - `[ -f ~/.vimrc ] && mv -f ~/.vimrc ~/.vimrc_old`
