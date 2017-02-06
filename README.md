@@ -24,21 +24,21 @@ Open terminal and execute:
 ## Install in Windows for GVIM
 
 1. Install the following tools and add them to PATH:
- - "msys2: http://www.msys2.org/"
- - "git: https://git-scm.com/"
- - "ctags: http://ctags.sourceforge.net/"
- - "astyle: http://astyle.sourceforge.net/"
- - "python: https://www.python.org/"
- - "setuptools: https://pypi.python.org/pypi/setuptools"
- - "autopep8: easy_install -ZU autopep8"
- - "flake8: easy_install -ZU flake8"
-- Clear \_vimrc in VIM install folder. The default path of 64 bit Windows is,
-    C:\Program Files (x86)\Vim\_vimrc
+ - [msys2](http://www.msys2.org/)
+ - [git](https://git-scm.com/)
+ - [ctags](http://ctags.sourceforge.net/)
+ - [astyle](http://astyle.sourceforge.net/)
+ - [python](https://www.python.org/)
+ - [setuptools](https://pypi.python.org/pypi/setuptools)
+ - autopep8: `easy_install -ZU autopep8`
+ - flake8: `easy_install -ZU flake8`
+- Clear *\_vimrc* in VIM install folder. The default path of 64 bit Windows is:
+    *C:\Program Files (x86)\Vim\_vimrc*
 - Open a cmd,
- - cd %USERPROFILE%
- - git clone git clone git@github.com:catro/vim.git vimfiles
- - git clone https://github.com/VundleVim/Vundle.vim.git vimfiles/bundle/Vundle.vim
- - echo source $HOME/vimfiles/.vimrc>\_vimrc
+ - `cd %USERPROFILE%`
+ - `git clone git@github.com:catro/vim.git vimfiles`
+ - `git clone https://github.com/VundleVim/Vundle.vim.git vimfiles/bundle/Vundle.vim`
+ - `echo source $HOME/vimfiles/.vimrc>\_vimrc`
 - Start GVIM and execute: `:BundleInstall`
 - Restart GVIM
 
