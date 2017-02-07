@@ -60,27 +60,27 @@ Open terminal and execute:
 1. vimrc supports both Linux and Windows with the same UI.
 - Plugin is managed by [vundle](https://github.com/VundleVim/Vundle.vim.git).
 - A few bundles for C/C++/Python developer.
-- Wonderful theme: Solarized.
-- Beautiful statusbar: airline with wombat theme.
+- Wonderful theme: [Solarized](https://github.com/altercation/vim-colors-solarized).
+- Beautiful statusbar: [airline](https://github.com/vim-airline/vim-airline) with wombat theme.
 - Keymaps for commands used frequently.
 
 ##Keymaps
-1. **<F1>**: Open the Tagbar window if it is closed, or close it if it is open.
-- **<F2>**: Open the NERD-tree window if it is closed, or close it if it is open.
-- **<F3>**: Start/Stop paste mode.
-- **<F5>**: 
+1. **\<F1\>**: Open the Tagbar window if it is closed, or close it if it is open.
+- **\<F2\>**: Open the NERD-tree window if it is closed, or close it if it is open.
+- **\<F3\>**: Start/Stop paste mode.
+- **\<F5\>**: 
  - Mapped to make by default.
  - For filetype markdown, convert it to html by markdown2.
  - For filetype python, invoke Flake8 plugin to check syntax and code style.
-- **<F6>**: Mapped to cn. Display the next error in the list.
-- **<F7>**: Mapped to cp. Display the previous error in the list.
-- **<F9>**: Open a new tab.
-- **<F11>**: Remove trailing spaces.
-- **<F12>**: Invoke Autoformat plugin to format code.
+- **\<F6\>**: Mapped to cn. Display the next error in the list.
+- **\<F7\>**: Mapped to cp. Display the previous error in the list.
+- **\<F9\>**: Open a new tab.
+- **\<F11\>**: Remove trailing spaces.
+- **\<F12\>**: Invoke Autoformat plugin to format code.
 - **tt**: Replace TAB with four spaces.
 - **Ctrl+N**: Go to next tab.
 - **Ctrl+P**: Go to previous tab.
-- **<leader>+1~9**: Go to Nth tab.
+- **\<leader\>+1~9**: Go to Nth tab.
 
 ## Plugins
 - ~~[TagList](https://github.com/vim-scripts/taglist.vim): Provide an overview of the structure of source code files.~~
