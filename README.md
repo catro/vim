@@ -38,7 +38,7 @@ Open terminal and execute:
  - `cd %USERPROFILE%`
  - `git clone git@github.com:catro/vim.git vimfiles`
  - `git clone https://github.com/VundleVim/Vundle.vim.git vimfiles/bundle/Vundle.vim`
- - `echo source $HOME/vimfiles/.vimrc>\_vimrc`
+ - `echo source $HOME/vimfiles/.vimrc>_vimrc`
 - Start GVIM and execute: `:BundleInstall`
 - Restart GVIM
 
