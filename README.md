@@ -33,7 +33,7 @@ Open terminal and execute:
  - autopep8: `easy_install -ZU autopep8`
  - flake8: `easy_install -ZU flake8`
 - Clear *\_vimrc* in VIM install folder. The default path of 64 bit Windows is:
-    *C:\Program Files (x86)\Vim\_vimrc*
+    *C:\Program Files (x86)\Vim\\_vimrc*
 - Open a cmd,
  - `cd %USERPROFILE%`
  - `git clone git@github.com:catro/vim.git vimfiles`
