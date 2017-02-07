@@ -119,6 +119,8 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+"Airline theme
+let g:airline_theme='wombat'
 "Patched font
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 
