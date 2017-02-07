@@ -78,6 +78,11 @@ set backspace=2                 " Let backspace handle indent, eol and start.
 set whichwrap+=<,>,h,l          " Allow specified keys that move the cursor left/right to move to the previous/next line.
 set report=0                    " Always report number of lines changed.
 
+" Maximize the window.
+if has('win32')
+    au GUIEnter * simalt ~x
+endif
+
 " Set format program.
 autocmd FileType c,cpp,hpp set formatprg=astyle\ --style=ansi
 
@@ -146,7 +151,10 @@ nmap tt :%s/\t/    /g<CR>
 map <C-a> ggVG$"+y
 vmap <C-c> "+y
 imap <C-v> <Esc>"*pa
+vmap <C-v> "*pa
 nmap <C-s> :w<cr>
+imap <C-s> <Esc>:w<cr>
+vmap <C-s> <Esc>:w<cr>
 
 " Keymap for VIM tab.
 nmap <C-n> :tabn<cr>
