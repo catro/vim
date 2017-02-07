@@ -113,7 +113,9 @@ nmap <F1> :Tlist<cr>
 nmap <F1> :TagbarToggle<cr>
 nmap <F2> :NERDTreeToggle<CR>
 set pastetoggle=<F4>
-nmap <F5> :make<cr>             "Remapped if filetype is python.
+nmap <F5> :make<cr>
+autocmd Filetype markdown nmap <F5> :!markdown2 %>%.html<CR><CR>
+autocmd FileType python nmap <F5> :call Flake8()<CR>
 nmap <F6> :cn<cr>
 nmap <F7> :cp<cr>
 nmap <F9> :tabnew<cr>
@@ -195,7 +197,6 @@ let g:syntastic_python_checkers = ['python']
 " flake8 configuration                                                        "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let no_flake8_maps = 1
-autocmd FileType python nmap <F5> :call Flake8()<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
