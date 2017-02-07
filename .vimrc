@@ -17,7 +17,7 @@ endif
 Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub repo
-Plugin 'vim-scripts/taglist.vim'
+"Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'vim-scripts/snipMate'
 "Plugin 'vim-scripts/AutoComplPop'
@@ -32,6 +32,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'nvie/vim-flake8'
+Plugin 'mhinz/vim-signify'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()               " required
@@ -102,32 +104,13 @@ endtry
 let g:solarized_termcolors=256
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" airline colorscheme                                                         "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline#extensions#whitespace#enabled=1
-let g:airline#extensions#syntastic#enabled=1
-" unicode symbols
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-"Airline theme
-let g:airline_theme='wombat'
-"Patched font
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymap                                                                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F1> :Tlist<cr>
+nmap <F1> :TagbarToggle<cr>
 nmap <F2> :NERDTreeToggle<CR>
 set pastetoggle=<F4>
 nmap <F5> :make<cr>             "Remapped if filetype is python.
@@ -138,13 +121,13 @@ nmap <F11> :%s/\s\+$//e<CR>
 nmap <F12> :Autoformat<CR>
 
 " Split navigations.
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+nmap <C-H> <C-W><C-H>
 
 " Folding.
-nmap ` za
+nmap <expr> ` foldlevel(".") ? 'za':'zf%'
 
 " Replace TAB with four spaces.
 nmap tt :%s/\t/    /g<CR>
@@ -161,6 +144,15 @@ vmap <C-s> <Esc>:w<cr>
 " Keymap for VIM tab.
 nmap <C-n> :tabn<cr>
 nmap <C-p> :tabp<cr>
+nmap <leader>1 1gt<cr>
+nmap <leader>2 2gt<cr>
+nmap <leader>3 3gt<cr>
+nmap <leader>4 4gt<cr>
+nmap <leader>5 5gt<cr>
+nmap <leader>6 6gt<cr>
+nmap <leader>7 7gt<cr>
+nmap <leader>8 8gt<cr>
+nmap <leader>9 9gt<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " QuickFix configuration                                                      "
@@ -172,7 +164,7 @@ autocmd QuickFixCmdPost    l* nested lwindow
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Taglist configuration                                                       "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let Tlist_Show_One_File=1
+"let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Sort_Type="name"
 let Tlist_Process_File_Always=0
@@ -204,3 +196,41 @@ let g:syntastic_python_checkers = ['python']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let no_flake8_maps = 1
 autocmd FileType python nmap <F5> :call Flake8()<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tagbar configuration                                                        "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tagbar_foldlevel = 1
+let g:tagbar_left = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline colorscheme                                                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#syntastic#enabled = 0
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline_section_c = '%f'
+" unicode symbols
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+"Airline theme
+let g:airline_theme='wombat'
+"Patched font
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+"tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#tab_nr_type = 1
