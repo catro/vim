@@ -5,10 +5,11 @@
  - [Install by script in Linux](#install-by-script-in-linux)
  - [Install manually：(Ubuntu as example)](#install-manuallyubuntu-as-example)
  - [Install in Windows for GVIM](#install-in-windows-for-gvim)
- - [Patched font for statusline](#patched-font-for-statusline)
 - [Features](#features)
 - [Keymaps](#keymaps)
 - [Plugins](#plugins)
+- [Others](#others)
+ - [Patched font for statusline](#patched-font-for-statusline)
 
 ## Screen captures
 
@@ -100,6 +101,8 @@ Open terminal and execute:
 - [vim-flake8](https://github.com/nvie/vim-flake8): A static syntax and style checker for Python source code.
 - [vim-signify](https://github.com/mhinz/vim-signify): It uses signs to indicate added, modified and removed lines based on data of an underlying version control system.
 - [tagbar](https://github.com/majutsushi/tagbar): Tagbar is a Vim plugin that provides an easy way to browse the tags of the current file and get an overview of its structure.
+
+## Others
 
 ### Patched font for statusline
 - To achieve better UI of statusline, you have to install patched font. The default font set in vimrc is [DejaVuSansMono](https://github.com/powerline/fonts/tree/master/DejaVuSansMono).
