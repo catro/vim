@@ -10,6 +10,7 @@
 - [Plugins](#plugins)
 - [Others](#others)
  - [Patched font for statusline](#patched-font-for-statusline)
+ - [Solarized theme](#solarized-theme)
 
 ## Screen captures
 
@@ -115,3 +116,7 @@ Open terminal and execute:
 
 ![Font options](http://i.imgur.com/SZ2RcUx.png)
 ![Disable wide characters](http://i.imgur.com/TY5xwS0.png)
+
+### Solarized theme
+- Putty setup: [https://github.com/altercation/solarized/blob/master/putty-colors-solarized/README.mkd](https://github.com/altercation/solarized/blob/master/putty-colors-solarized/README.mkd).
+- Other setup: [https://github.com/altercation/solarized](https://github.com/altercation/solarized).
