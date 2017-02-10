@@ -92,6 +92,9 @@ else
 endif
 set wildignore=*.o,*~,*.pyc,*.pyo
 
+" Set text width
+autocmd Filetype python set textwidth=80
+
 " Set format program.
 autocmd FileType c,cpp,hpp set formatprg=astyle\ --style=ansi
 
@@ -125,6 +128,8 @@ autocmd Filetype markdown nmap <F5> :!markdown2 %>%.html<CR><CR>
 autocmd FileType python nmap <F5> :call Flake8()<CR>
 nmap <F6> :cn<cr>
 nmap <F7> :cp<cr>
+nmap <F8> :setlocal spell! spelllang=en_us<CR>
+imap <F8> <C-\><C-O>:setlocal spelllang=en_us spell! spell?<CR>
 nmap <F9> :tabnew<cr>
 nmap <F11> :%s/\s\+$//e<CR>
 nmap <F12> :Autoformat<CR>
