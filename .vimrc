@@ -79,11 +79,18 @@ set autoread                    " When a file has been detected to have been cha
 set backspace=2                 " Let backspace handle indent, eol and start.
 set whichwrap+=<,>,h,l          " Allow specified keys that move the cursor left/right to move to the previous/next line.
 set report=0                    " Always report number of lines changed.
+set foldmethod=manual           " Create fold marker manually.
+set foldlevelstart=99           " Disable most of folders.
+set fileformats=dos,unix        " Set the end-of-line formats.
 
 " Maximize the window.
 if has('win32')
     au GUIEnter * simalt ~x
+    set wildignore+=.git\*,.hg\*,.svn\*
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 endif
+set wildignore=*.o,*~,*.pyc,*.pyo
 
 " Set format program.
 autocmd FileType c,cpp,hpp set formatprg=astyle\ --style=ansi
@@ -129,7 +136,10 @@ nmap <C-L> <C-W><C-L>
 nmap <C-H> <C-W><C-H>
 
 " Folding.
-nmap <expr> ` foldlevel(".") ? 'za':'zf%'
+nmap <leader>f :set foldmethod=syntax<cr>
+nmap - zf%
+nmap + zo
+nmap ` za
 
 " Replace TAB with four spaces.
 nmap tt :%s/\t/    /g<CR>
