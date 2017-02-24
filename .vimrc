@@ -17,7 +17,7 @@ endif
 Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub repo
-"Plugin 'vim-scripts/taglist.vim'
+Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'vim-scripts/snipMate'
 "Plugin 'vim-scripts/AutoComplPop'
@@ -120,7 +120,7 @@ let g:solarized_termcolors=256
 " Keymap                                                                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F1> :Tlist<cr>
-nmap <F1> :TagbarToggle<cr>
+"nmap <F1> :TagbarToggle<cr>
 nmap <F2> :NERDTreeToggle<CR>
 set pastetoggle=<F4>
 nmap <F5> :make<cr>
