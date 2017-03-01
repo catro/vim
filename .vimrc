@@ -101,6 +101,9 @@ autocmd FileType c,cpp,hpp set formatprg=astyle\ --style=ansi
 " Restore the position of last closed file.
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" Use TAB for Makefile
+autocmd BufEnter Makefile setlocal noexpandtab
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Solarized colorscheme                                                       "
@@ -170,6 +173,16 @@ nmap <leader>6 6gt<cr>
 nmap <leader>7 7gt<cr>
 nmap <leader>8 8gt<cr>
 nmap <leader>9 9gt<cr>
+
+" Disable highlighed maches
+nmap <leader><space> :nohlsearch<CR>
+
+" Move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" jk is escape
+inoremap jk <esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " QuickFix configuration                                                      "
