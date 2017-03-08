@@ -20,7 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'vim-scripts/snipMate'
-"Plugin 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/AutoComplPop'
 Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'vim-scripts/python-imports.vim'     "<C-f> to append necessary import.
 Plugin 'asins/vim-dict'
