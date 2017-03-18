@@ -22,7 +22,7 @@ Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'vim-scripts/snipMate'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'vim-scripts/Auto-Pairs'
-Plugin 'vim-scripts/python-imports.vim'     "<C-f> to append necessary import.
+"Plugin 'vim-scripts/python-imports.vim'     "<C-f> to append necessary import.
 Plugin 'asins/vim-dict'
 "Plugin 'vim-syntastic/syntastic'
 Plugin 'aperezdc/vim-template'
@@ -88,21 +88,24 @@ if has('win32')
     au GUIEnter * simalt ~x
     set wildignore+=.git\*,.hg\*,.svn\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+    set wildignore+=.git/*,.hg/*,.svn/*
 endif
-set wildignore=*.o,*~,*.pyc,*.pyo
+set wildignore+=*.o,*~,*.pyc,*.pyo,*.swp
 
-" Set text width
-autocmd Filetype python set textwidth=80
+" Set text width and fileformats
+autocmd BufRead,BufNewFile *.py setlocal textwidth=80
+
+" Use TAB for Makefile
+autocmd BufRead,BufNewFile Makefile setlocal noexpandtab
+
+" Set unix file format
+autocmd BufRead,BufNewFile Makefile,*.py,*.sh setlocal fileformat=unix
 
 " Set format program.
-autocmd FileType c,cpp,hpp set formatprg=astyle\ --style=ansi
+autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set formatprg=astyle\ --style=ansi
 
 " Restore the position of last closed file.
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" Use TAB for Makefile
-autocmd BufEnter Makefile setlocal noexpandtab
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -127,8 +130,8 @@ nmap <F1> :Tlist<cr>
 nmap <F2> :NERDTreeToggle<CR>
 set pastetoggle=<F4>
 nmap <F5> :make<cr>
-autocmd Filetype markdown nmap <F5> :!markdown2 %>%.html<CR><CR>
-autocmd FileType python nmap <F5> :call Flake8()<CR>
+autocmd BufRead,BufNewFile *.markdown,*.mk,*.mkd nmap <F5> :!markdown2 %>%.html<CR><CR>
+autocmd BufRead,BufNewFile *.py nmap <F5> :call Flake8()<CR>
 nmap <F6> :cn<cr>
 nmap <F7> :cp<cr>
 nmap <F8> :setlocal spell! spelllang=en_us<CR>
