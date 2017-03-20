@@ -158,8 +158,9 @@ nmap tt :%s/\t/    /g<CR>
 " Copy/Paste/Save.
 map <C-a> ggVG$"+y
 vmap <C-c> "+y
-imap <C-v> <Esc>"*pa
-vmap <C-v> "*pa
+imap <C-v> <Esc>"+gP
+vmap <C-v> "+gP
+cmap <C-v> <C-R>+
 nmap <C-s> :w<cr>
 imap <C-s> <Esc>:w<cr>
 vmap <C-s> <Esc>:w<cr>
