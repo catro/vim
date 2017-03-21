@@ -198,7 +198,7 @@ autocmd QuickFixCmdPost    l* nested lwindow
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Taglist configuration                                                       "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let Tlist_Show_One_File=1
+let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Sort_Type="name"
 let Tlist_Process_File_Always=0
