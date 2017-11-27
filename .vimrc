@@ -93,7 +93,7 @@ endif
 set wildignore+=*.o,*~,*.pyc,*.pyo,*.swp
 
 " Set text width and fileformats
-autocmd BufRead,BufNewFile *.py setlocal textwidth=80
+" autocmd BufRead,BufNewFile *.py setlocal textwidth=80
 
 " Use TAB for Makefile
 autocmd BufRead,BufNewFile Makefile setlocal noexpandtab
