@@ -82,6 +82,7 @@ set report=0                    " Always report number of lines changed.
 set foldmethod=manual           " Create fold marker manually.
 set foldlevelstart=99           " Disable most of folders.
 set fileformats=dos,unix        " Set the end-of-line formats.
+set colorcolumn=100             " Set ColorColumn
 
 " Maximize the window.
 if has('win32')
