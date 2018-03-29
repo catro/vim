@@ -189,6 +189,9 @@ nnoremap k gk
 " jk is escape
 inoremap jk <esc>
 
+" Save readonly
+cnoremap w!! w !sudo tee > /dev/null %
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " QuickFix configuration                                                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
